@@ -32,7 +32,9 @@ public class MyProxy {
         System.out.println("生成Class：" + result);
         //4. ClassLoader 加载类
         try {
-            Class<?> aClass = classLoader.findClass(file.getName());
+            String fileName = file.getName();
+            fileName = fileName.replace(".java","");
+            Class<?> aClass = classLoader.findClass(obj.getClass().getPackage().getName() +"."+ fileName);
             Constructor<?> constructor = aClass.getConstructor(MyInvocationHandler.class.getClasses());
             return constructor.newInstance(obj);
         } catch (ClassNotFoundException e) {
@@ -185,6 +187,6 @@ public class MyProxy {
 
     public static void main(String[] args) {
         System.out.printf(MyInvocationHandler.class.getPackage().getName());
-        MyProxy.newProxyInstance(new MyClassLoader(MyBadAgent.class.getResource("").getPath()), BeijingLoser.class.getInterfaces(), new MyBadAgent());
+        MyProxy.newProxyInstance(new MyClassLoader(MyBadAgent.class.getResource("/").getPath()), BeijingLoser.class.getInterfaces(), new MyBadAgent());
     }
 }

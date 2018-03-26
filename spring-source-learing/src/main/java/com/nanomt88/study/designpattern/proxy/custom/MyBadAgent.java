@@ -12,7 +12,7 @@ public class MyBadAgent implements MyInvocationHandler {
     public Object getInstance(Renter renter){
         this.target = renter;
         Class<?> clazz = renter.getClass();
-        return MyProxy.newProxyInstance(new MyClassLoader(renter.getClass().getResource("").getPath()),
+        return MyProxy.newProxyInstance(new MyClassLoader(renter.getClass().getResource("/").getPath()),
                 clazz.getInterfaces(), this);
     }
 

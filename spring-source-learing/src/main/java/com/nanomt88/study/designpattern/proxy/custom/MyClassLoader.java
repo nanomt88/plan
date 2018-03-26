@@ -14,7 +14,7 @@ public class MyClassLoader extends ClassLoader{
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        File file = new File(basePath, name);
+        File file = new File(basePath, name.replace(".",File.separator) + ".class");
         if(file.exists()){
             FileInputStream in = null;
             ByteArrayOutputStream out = null;
@@ -49,5 +49,9 @@ public class MyClassLoader extends ClassLoader{
             }
         }
         return super.findClass(name);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(MyClassLoader.class.getResource("/").getPath());
     }
 }
