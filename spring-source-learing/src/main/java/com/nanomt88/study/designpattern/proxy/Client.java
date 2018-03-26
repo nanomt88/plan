@@ -48,18 +48,23 @@ public class Client {
 
     }
 
+    /**
+     * 生成 运行阶段 的字节码
+     */
     private static void test2(){
         BadAgent agent = new BadAgent();
         Renter ds = (Renter) agent.getInstance(new BeijingLoser("屌丝王",
                 new House(true, true, 800, 8)));
         try {
 //            ProxyGenerator.generateProxyClass()
-
-            byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy1", new Class[]{ds.getClass()},0);
+            System.getProperties().put(
+                    "sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+            // 第3个参数，是指定编译源码的版本
+            byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{ds.getClass()});
             System.out.printf(System.getProperty("java.version"));
             String path = agent.getClass().getResource("/").getPath();
             path += agent.getClass().getPackage().getName().replace(".",File.separator);
-            FileOutputStream stream = new FileOutputStream(path + File.separator + "$Proxy1.class");
+            FileOutputStream stream = new FileOutputStream(path + File.separator + "$Proxy0.class");
             stream.write(bytes);
             stream.close();
         } catch (FileNotFoundException e) {
