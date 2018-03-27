@@ -22,10 +22,10 @@ public class MyProxy {
     public static final Object newProxyInstance(MyClassLoader classLoader, Class<?>[] clazz, MyInvocationHandler obj) {
 //        handler = obj;
         //1. 生成Java源代码
-        String source = generateSource(clazz, obj);
+        String source = generateSource(clazz);
         System.out.println("============================");
         //2. 写到本地磁盘
-        File file = writeSource(source, obj);
+        File file = writeSource(source);
         System.out.println("Java file path:"+file);
         //3. 编译
         boolean result = compilerSource(file);
@@ -34,8 +34,8 @@ public class MyProxy {
         try {
             String fileName = file.getName();
             fileName = fileName.replace(".java","");
-            Class<?> aClass = classLoader.findClass(obj.getClass().getPackage().getName() +"."+ fileName);
-            Constructor<?> constructor = aClass.getConstructor(MyInvocationHandler.class.getClasses());
+            Class<?> aClass = classLoader.findClass(MyClassLoader.class.getPackage().getName() +"."+ fileName);
+            Constructor<?> constructor = aClass.getConstructor(MyInvocationHandler.class);
             return constructor.newInstance(obj);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -59,8 +59,8 @@ public class MyProxy {
         return task.call();
     }
 
-    private static File writeSource(String source, MyInvocationHandler obj) {
-        String path = obj.getClass().getResource("").getPath()
+    private static File writeSource(String source) {
+        String path = MyClassLoader.class.getResource("").getPath()
                 + "/$Proxy0.java";
         try {
             File file = new File(path);
@@ -75,7 +75,7 @@ public class MyProxy {
         return null;
     }
 
-    private static String generateSource(Class<?>[] clazz, MyInvocationHandler handler) {
+    private static String generateSource(Class<?>[] clazz) {
 
         List<Method> list = new ArrayList<Method>();
         for (Class<?> c : clazz) {
@@ -86,7 +86,7 @@ public class MyProxy {
         }
 
         StringBuffer str = new StringBuffer();
-        str.append("package ").append(handler.getClass().getPackage().getName()).append(";").append(ln);
+        str.append("package ").append( MyClassLoader.class.getPackage().getName()).append(";").append(ln);
         str.append("import java.lang.reflect.Method;").append(ln);
         str.append("import java.lang.reflect.UndeclaredThrowableException;").append(ln);
         str.append("import ").append(MyInvocationHandler.class.getName()).append(";").append(ln);
@@ -108,7 +108,7 @@ public class MyProxy {
         str.append("   try{").append(ln);
 
         for (int i = 0; i < methods.length; i++) {
-            str.append("        m").append(i).append(" = Class.forName(\"").append(handler.getClass().getPackage().getName())
+            str.append("        m").append(i).append(" = Class.forName(\"").append( MyClassLoader.class.getPackage().getName())
                     .append(".$Proxy0\").getMethod(\"").append(methods[i].getName()).append("\"");
             Class<?>[] parameterTypes = methods[i].getParameterTypes();
             str.append(",new Class[").append(methods[i].getParameterCount() == 0 ? 0 : "").append("]");
@@ -155,10 +155,14 @@ public class MyProxy {
             }
             str.append("{").append(ln);
             str.append("        try{").append(ln);
-            if ("void".equals(methods[i].getReturnType().getName())) {
+            String returnTypeName = methods[i].getReturnType().getName();
+            if(returnTypeName.equals("boolean")){
+                returnTypeName = "Boolean";
+            }
+            if ("void".equals(returnTypeName)) {
                 str.append("          this.h.invoke(this, m" + i + ", ");
             } else {
-                str.append("          return ").append("(" + methods[i].getReturnType().getName() + ")")
+                str.append("          return ").append("(" + returnTypeName + ")")
                         .append("this.h.invoke(this, m" + i + ", ");
             }
             if (methods[i].getParameterCount() > 0) {
@@ -170,7 +174,7 @@ public class MyProxy {
                 str.delete(str.length() - 1, str.length());
                 str.append("}");
             } else {
-                str.append("null");
+                str.append("(Object[])null");
             }
             str.append(");").append(ln);
 

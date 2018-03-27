@@ -14,6 +14,8 @@ import com.nanomt88.study.designpattern.proxy.Renter;
 public class MyClient {
     public static void main(String[] args) {
         test1();
+//        test2();
+//        test3();
     }
 
     /**
@@ -41,6 +43,26 @@ public class MyClient {
         if(result){
             return;
         }
+    }
 
+    public static void test2(){
+        MyClassLoader classLoader = new MyClassLoader(MyClassLoader.class.getResource("/").getPath());
+        try {
+            Class<?> aClass = classLoader.loadClass(MyDemo.class.getName());
+            MyDemo o = (MyDemo) aClass.newInstance();
+            o.invoke();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void test3(){
+        MyInvocationHandler h = new MyBadAgent();
+        $Proxy0 proxy = new $Proxy0(h);
+        proxy.findHouse(new House(true, true, 100, 100));
     }
 }
