@@ -1,5 +1,6 @@
 package com.nanomt88.study.designpattern.proxy.custom;
 
+import com.nanomt88.study.designpattern.proxy.House;
 import com.nanomt88.study.designpattern.proxy.Renter;
 
 import java.lang.reflect.InvocationHandler;
@@ -16,12 +17,22 @@ public class MyBadAgent implements MyInvocationHandler {
                 clazz.getInterfaces(), this);
     }
 
+    public Renter getTarget() {
+        return target;
+    }
+
+    public void setTarget(Renter target) {
+        this.target = target;
+    }
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("------ 我是黑中介2 ------");
         System.out.println("proxy : "+proxy.getClass());
         System.out.println("推荐备选房子2 ： " + args[0].toString());
-        boolean result = (Boolean) method.invoke(target, args);
+        House h = (House) args[0];
+        boolean result = true;
+                method.invoke(target,h);
         if(result){
             System.out.println("推荐房子成功2……");
             System.out.println("------ 我是黑中介2 ------");
