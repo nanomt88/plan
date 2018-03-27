@@ -30,9 +30,7 @@ public class MyBadAgent implements MyInvocationHandler {
         System.out.println("------ 我是黑中介2 ------");
         System.out.println("proxy : "+proxy.getClass());
         System.out.println("推荐备选房子2 ： " + args[0].toString());
-        House h = (House) args[0];
-        boolean result = true;
-                method.invoke(target,h);
+        boolean result = (boolean) method.invoke(target,args);
         if(result){
             System.out.println("推荐房子成功2……");
             System.out.println("------ 我是黑中介2 ------");

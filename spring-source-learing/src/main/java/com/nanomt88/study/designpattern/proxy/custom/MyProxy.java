@@ -12,7 +12,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyProxy {
 
@@ -78,10 +80,12 @@ public class MyProxy {
     private static String generateSource(Class<?>[] clazz) {
 
         List<Method> list = new ArrayList<Method>();
+        Map<Method, Class<?>> map = new HashMap<>();
         for (Class<?> c : clazz) {
             Method[] methods = c.getMethods();
             for (Method m : methods) {
                 list.add(m);
+                map.put(m, c);
             }
         }
 
@@ -108,8 +112,9 @@ public class MyProxy {
         str.append("   try{").append(ln);
 
         for (int i = 0; i < methods.length; i++) {
-            str.append("        m").append(i).append(" = Class.forName(\"").append(MyProxy.class.getPackage().getName())
-                    .append(".$Proxy0\").getMethod(\"").append(methods[i].getName()).append("\"");
+            Class<?> intefaceClazz = map.get(methods[i]);
+            str.append("        m").append(i).append(" = Class.forName(\"").append(intefaceClazz.getName())
+                    .append("\").getMethod(\"").append(methods[i].getName()).append("\"");
             Class<?>[] parameterTypes = methods[i].getParameterTypes();
             str.append(",new Class[").append(methods[i].getParameterCount() == 0 ? 0 : "").append("]");
             if (methods[i].getParameterCount() > 0) {
