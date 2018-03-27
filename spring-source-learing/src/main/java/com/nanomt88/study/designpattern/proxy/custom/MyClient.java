@@ -4,6 +4,11 @@ package com.nanomt88.study.designpattern.proxy.custom;
 import com.nanomt88.study.designpattern.proxy.BeijingLoser;
 import com.nanomt88.study.designpattern.proxy.House;
 import com.nanomt88.study.designpattern.proxy.Renter;
+import org.junit.Test;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 
 /**
  * ${DESCRIPTION}
@@ -64,5 +69,22 @@ public class MyClient {
         MyInvocationHandler h = new MyBadAgent();
         $Proxy0 proxy = new $Proxy0(h);
         proxy.findHouse(new House(true, true, 100, 100));
+    }
+
+    @Test
+    public void test2(){
+        MyBadAgent h = new MyBadAgent();
+        h.setTarget(new BeijingLoser("小屌丝", new House(true,true,100,10)));
+        $Proxy0 p = new $Proxy0(h);
+        boolean house = p.findHouse(new House(true, true, 1000, 100));
+        System.out.println(house);
+    }
+
+    @Test
+    public void test3() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        BeijingLoser loser = new BeijingLoser("小屌丝", new House(true,true,100,10));
+
+        Method method = BeijingLoser.class.getMethod("findHouse", new Class[]{House.class});
+        method.invoke(loser, new House(true,true,100,10));
     }
 }

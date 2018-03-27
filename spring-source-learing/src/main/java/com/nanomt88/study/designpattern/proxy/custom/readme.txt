@@ -1,0 +1,1 @@
+自己编码实现 JDK InvocationHandle 功能

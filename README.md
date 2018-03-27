@@ -6,6 +6,9 @@
 
 ### spring 常见设计模式 - JDK动态代理
 1. 类图
+    
+    ![image][./src/main/java/com/nanomt88/study/designpattern/proxy/proxy.png]
+    
 2. 步骤
 3. 原理：
     1. 生成源代码

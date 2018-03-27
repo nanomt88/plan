@@ -34,7 +34,7 @@ public class MyProxy {
         try {
             String fileName = file.getName();
             fileName = fileName.replace(".java","");
-            Class<?> aClass = classLoader.findClass(MyClassLoader.class.getPackage().getName() +"."+ fileName);
+            Class<?> aClass = classLoader.loadClass(MyProxy.class.getPackage().getName() +"."+ fileName);
             Constructor<?> constructor = aClass.getConstructor(MyInvocationHandler.class);
             return constructor.newInstance(obj);
         } catch (ClassNotFoundException e) {
@@ -60,7 +60,7 @@ public class MyProxy {
     }
 
     private static File writeSource(String source) {
-        String path = MyClassLoader.class.getResource("").getPath()
+        String path = MyProxy.class.getResource("").getPath()
                 + "/$Proxy0.java";
         try {
             File file = new File(path);
@@ -86,7 +86,7 @@ public class MyProxy {
         }
 
         StringBuffer str = new StringBuffer();
-        str.append("package ").append( MyClassLoader.class.getPackage().getName()).append(";").append(ln);
+        str.append("package ").append(MyProxy.class.getPackage().getName()).append(";").append(ln);
         str.append("import java.lang.reflect.Method;").append(ln);
         str.append("import java.lang.reflect.UndeclaredThrowableException;").append(ln);
         str.append("import ").append(MyInvocationHandler.class.getName()).append(";").append(ln);
@@ -108,7 +108,7 @@ public class MyProxy {
         str.append("   try{").append(ln);
 
         for (int i = 0; i < methods.length; i++) {
-            str.append("        m").append(i).append(" = Class.forName(\"").append( MyClassLoader.class.getPackage().getName())
+            str.append("        m").append(i).append(" = Class.forName(\"").append(MyProxy.class.getPackage().getName())
                     .append(".$Proxy0\").getMethod(\"").append(methods[i].getName()).append("\"");
             Class<?>[] parameterTypes = methods[i].getParameterTypes();
             str.append(",new Class[").append(methods[i].getParameterCount() == 0 ? 0 : "").append("]");
