@@ -4,7 +4,7 @@
     
 ## spring 常见设计模式
 
-### spring 常见设计模式 - JDK动态代理
+### JDK动态代理
 1. 类图
     
 ![类图](https://raw.githubusercontent.com/nanomt88/plan/master/spring-source-learing/src/main/java/com/nanomt88/study/designpattern/proxy/proxy.png)
@@ -30,7 +30,7 @@
 	代码参考 [自己实现Java动态代理源代码](https://github.com/nanomt88/plan/tree/master/spring-source-learing/src/main/java/com/nanomt88/study/designpattern/proxy/custom "自己实现Java动态代理源代码")
 
 
-### spring 常见设计模式 - CGlib 动态代理
+### CGlib 动态代理
 1. 满足代理模式的三个必要条件
     
     1. 需要两个角色：执行者和被代理对象
@@ -99,7 +99,7 @@
 	
 5. jdk和cglib动态代理实现的区别
 	1. jdk动态代理生成的代理类和委托类实现了相同的接口；
-	2. cglib动态代理中生成的字节码更加复杂，生成的代理类是委托类的子类，且不能处理被final关键字修饰的方法；CGlib是采用继承的方式实现动态代理的，因此final类不能代理，非final类中的final方法也不能被代理
+	2. cglib动态代理中生成的字节码更加复杂，CGlib是采用继承的方式实现动态代理的，因此final类不能代理，非final类中的final方法也不能被代理
 	3. jdk采用反射机制调用委托类的方法，cglib采用类似索引的方式直接调用委托类方法；
 
 6. FastClass实现机制
