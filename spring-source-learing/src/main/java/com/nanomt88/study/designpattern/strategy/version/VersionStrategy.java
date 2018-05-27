@@ -1,6 +1,10 @@
 package com.nanomt88.study.designpattern.strategy.version;
 
 
+import reactor.core.publisher.Mono;
+
+import java.io.InputStream;
+
 /**
  * spring 源码中 关于URL version提取的策略模式 示例
  *
@@ -36,4 +40,10 @@ public interface VersionStrategy {
      */
     String addVersion(String requestPath, String version);
 
+    /**
+     *
+     * @param resource
+     * @return
+     */
+    Mono<String> getResourceVersion(InputStream resource);
 }
