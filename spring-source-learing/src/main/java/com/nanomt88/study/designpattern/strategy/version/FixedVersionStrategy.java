@@ -11,7 +11,7 @@ public class FixedVersionStrategy extends AbstractPrefixVersionStrategy {
     }
 
     @Override
-    public Mono<String> getResourceVersion(InputStream resource) {
+    public Mono<String> getResourceVersion(Resource resource) {
         return null;
     }
 }

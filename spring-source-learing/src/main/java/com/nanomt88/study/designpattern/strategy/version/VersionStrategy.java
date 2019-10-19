@@ -45,5 +45,5 @@ public interface VersionStrategy {
      * @param resource
      * @return
      */
-    Mono<String> getResourceVersion(InputStream resource);
+    Mono<String> getResourceVersion(Resource resource);
 }

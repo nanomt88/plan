@@ -7,7 +7,7 @@ import java.io.InputStream;
 public class ContentVersionStrategy extends AbstractFileNameVersionStrategy {
 
     @Override
-    public Mono<String> getResourceVersion(InputStream resource) {
+    public Mono<String> getResourceVersion(Resource resource) {
         return null;
     }
 }

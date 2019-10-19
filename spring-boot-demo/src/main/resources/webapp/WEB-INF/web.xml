@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd ">
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>com.nanomt88.demo.errorcode.IndexServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/index.do</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.htm</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.htm</location>
+    </error-page>
+
+</web-app>
