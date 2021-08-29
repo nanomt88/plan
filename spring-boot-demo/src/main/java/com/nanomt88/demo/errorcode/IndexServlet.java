@@ -13,7 +13,7 @@ import java.io.IOException;
 public class IndexServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.err.println("invoke....");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        System.err.println("invoke  IndexServlet....");
     }
 }
