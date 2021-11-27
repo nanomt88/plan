@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://bpmn.io/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yaoqiang="http://bpmn.sourceforge.net"
+             exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="8.7.2"
+             expressionLanguage="http://www.w3.org/1999/XPath" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" name=""
+             targetNamespace="http://bpmn.io/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://bpmn.sourceforge.net/schemas/BPMN20.xsd">
+    <process id="Process_1" isClosed="false" isExecutable="false" processType="None">
+        <extensionElements>
+            <yaoqiang:description/>
+            <yaoqiang:pageFormat height="841.8897637795276" imageableHeight="831.8897637795276"
+                                 imageableWidth="588.1102362204724" imageableX="5.0" imageableY="5.0" orientation="0"
+                                 width="598.1102362204724"/>
+            <yaoqiang:page background="#FFFFFF" horizontalCount="1" verticalCount="1"/>
+        </extensionElements>
+        <startEvent id="StartEvent_1y45yut" isInterrupting="true" name="hunger noticed" parallelMultiple="false">
+            <outgoing>SequenceFlow_0h21x7r</outgoing>
+            <outputSet/>
+        </startEvent>
+        <sequenceFlow id="SequenceFlow_0h21x7r" sourceRef="StartEvent_1y45yut" targetRef="Gateway_0a02umc"/>
+        <exclusiveGateway gatewayDirection="Unspecified" id="ExclusiveGateway_15hu1pt" name="desired dish?">
+            <incoming>SequenceFlow_0wnb4ke</incoming>
+            <outgoing>Flow_0803wbo</outgoing>
+        </exclusiveGateway>
+        <sequenceFlow id="SequenceFlow_0wnb4ke" sourceRef="Task_1hcentk" targetRef="ExclusiveGateway_15hu1pt"/>
+        <exclusiveGateway gatewayDirection="Unspecified" id="Gateway_0a02umc" name="测试">
+            <incoming>SequenceFlow_0h21x7r</incoming>
+            <outgoing>Flow_0pqu1rl</outgoing>
+            <outgoing>Flow_10cxdpn</outgoing>
+        </exclusiveGateway>
+        <sequenceFlow id="Flow_0pqu1rl" sourceRef="Gateway_0a02umc" targetRef="Task_1hcentk"/>
+        <task completionQuantity="1" id="Activity_1abjpfd" isForCompensation="false" name="做什么2" startQuantity="1">
+            <incoming>Flow_0803wbo</incoming>
+            <incoming>Flow_10cxdpn</incoming>
+            <outgoing>Flow_0a0y0ff</outgoing>
+        </task>
+        <sequenceFlow id="Flow_0803wbo" sourceRef="ExclusiveGateway_15hu1pt" targetRef="Activity_1abjpfd"/>
+        <sequenceFlow id="Flow_10cxdpn" sourceRef="Gateway_0a02umc" targetRef="Activity_1abjpfd"/>
+        <endEvent id="Event_1smb54j">
+            <incoming>Flow_0a0y0ff</incoming>
+            <inputSet/>
+        </endEvent>
+        <sequenceFlow id="Flow_0a0y0ff" sourceRef="Activity_1abjpfd" targetRef="Event_1smb54j"/>
+        <task completionQuantity="1" id="Task_1hcentk" isForCompensation="false" name="choose recipe" startQuantity="1">
+            <incoming>Flow_0pqu1rl</incoming>
+            <outgoing>SequenceFlow_0wnb4ke</outgoing>
+        </task>
+    </process>
+    <bpmndi:BPMNDiagram id="Yaoqiang_Diagram-Process_1" name="Untitled Diagram" resolution="96.0">
+        <bpmndi:BPMNPlane bpmnElement="Process_1">
+            <bpmndi:BPMNShape bpmnElement="StartEvent_1y45yut" id="Yaoqiang-StartEvent_1y45yut">
+                <omgdc:Bounds height="32.0" width="32.0" x="152.0" y="102.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="78.0" x="131.5" y="143.97"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="ExclusiveGateway_15hu1pt" id="Yaoqiang-ExclusiveGateway_15hu1pt"
+                              isMarkerVisible="true">
+                <omgdc:Bounds height="42.0" width="42.0" x="575.0" y="285.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="71.0" x="496.5" y="303.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Gateway_0a02umc" id="Yaoqiang-Gateway_0a02umc" isMarkerVisible="true">
+                <omgdc:Bounds height="42.0" width="42.0" x="335.0" y="95.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="28.0" x="346.0" y="65.0"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Activity_1abjpfd" id="Yaoqiang-Activity_1abjpfd">
+                <omgdc:Bounds height="80.0" width="100.0" x="550.0" y="400.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="45.0" x="577.5" y="431.49"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Event_1smb54j" id="Yaoqiang-Event_1smb54j">
+                <omgdc:Bounds height="32.0" width="32.0" x="582.0" y="542.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="595.0" y="581.49"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="Task_1hcentk" id="Yaoqiang-Task_1hcentk">
+                <omgdc:Bounds height="80.0" width="100.0" x="550.0" y="80.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="75.0" x="562.5" y="111.49"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="Flow_10cxdpn" id="Yaoqiang-Flow_10cxdpn">
+                <omgdi:waypoint x="360.0" y="133.25"/>
+                <omgdi:waypoint x="360.0" y="440.0"/>
+                <omgdi:waypoint x="549.75" y="440.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="357.0" y="370.99"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_0a0y0ff" id="Yaoqiang-Flow_0a0y0ff">
+                <omgdi:waypoint x="598.0" y="480.5"/>
+                <omgdi:waypoint x="598.0" y="542.5019532442238"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="595.0" y="500.99"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_0wnb4ke" id="Yaoqiang-SequenceFlow_0wnb4ke">
+                <omgdi:waypoint x="596.0" y="160.5"/>
+                <omgdi:waypoint x="596.0" y="285.75"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="593.0" y="212.61"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_0803wbo" id="Yaoqiang-Flow_0803wbo">
+                <omgdi:waypoint x="596.0" y="327.25"/>
+                <omgdi:waypoint x="596.0" y="400.5"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="593.0" y="353.36"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="Flow_0pqu1rl" id="Yaoqiang-Flow_0pqu1rl">
+                <omgdi:waypoint x="376.25" y="116.0"/>
+                <omgdi:waypoint x="549.75" y="120.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="460.5" y="106.99"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_0h21x7r" id="Yaoqiang-SequenceFlow_0h21x7r">
+                <omgdi:waypoint x="183.74218559171948" y="118.0"/>
+                <omgdi:waypoint x="335.25" y="116.0"/>
+                <bpmndi:BPMNLabel>
+                    <omgdc:Bounds height="21.02" width="6.0" x="256.5" y="106.49"/>
+                </bpmndi:BPMNLabel>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

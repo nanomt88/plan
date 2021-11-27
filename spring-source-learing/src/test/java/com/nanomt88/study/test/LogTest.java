@@ -1,4 +1,4 @@
-package com.nanomt88.study;
+package com.nanomt88.study.test;
 
 import org.junit.Test;
 
