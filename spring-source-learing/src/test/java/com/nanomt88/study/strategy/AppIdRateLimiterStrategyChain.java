@@ -5,7 +5,7 @@ import com.nanomt88.study.ObpResponse;
 
 /**
  *  根据appId进行限流
- * @author hongxudong123@pingan.com.cn
+ * @author nanomt88@gmail.com
  * @create 2020-02-15 13:13
  **/
 public class AppIdRateLimiterStrategyChain implements GatewayStrategy {

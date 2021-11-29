@@ -5,7 +5,7 @@ import com.nanomt88.study.ObpResponse;
 
 /**
  *  加密业务参数
- * @author hongxudong123@pingan.com.cn
+ * @author nanomt88@gmail.com
  * @create 2020-02-14 16:41
  **/
 public class EncryptBizContentStrategy implements GatewayStrategy {

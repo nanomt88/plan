@@ -5,7 +5,7 @@ import com.nanomt88.study.ObpResponse;
 
 /**
  * 检查ip是否在白名单
- * @author hongxudong123@pingan.com.cn
+ * @author nanomt88@gmail.com
  * @create 2020-02-14 16:41
  **/
 public class ValidAppWhiteListStrategy implements GatewayStrategy {

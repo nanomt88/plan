@@ -6,7 +6,7 @@ import com.nanomt88.study.ObpResponse;
 /**
  * 根据 appId + method接口码 检查接口权限
  *
- * @author hongxudong123@pingan.com.cn
+ * @author nanomt88@gmail.com
  * @create 2020-02-14 18:27
  **/
 public class ValidMethodStrategy implements GatewayStrategy {

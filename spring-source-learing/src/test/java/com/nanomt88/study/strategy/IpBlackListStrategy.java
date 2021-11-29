@@ -6,7 +6,7 @@ import com.nanomt88.study.ObpResponse;
 /**
  *  IP黑名单
  *
- * @author hongxudong123@pingan.com.cn
+ * @author nanomt88@gmail.com
  * @create 2020-02-14 16:56
  **/
 public class IpBlackListStrategy implements GatewayStrategy {
