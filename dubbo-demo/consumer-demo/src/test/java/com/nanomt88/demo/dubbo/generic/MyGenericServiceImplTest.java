@@ -1,14 +1,11 @@
 package com.nanomt88.demo.dubbo.generic;
 
-import org.apache.dubbo.common.Constants;
 import com.nanomt88.demo.dubbo.sample.IMyService;
 import com.nanomt88.demo.dubbo.sample.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
@@ -21,11 +18,11 @@ class MyGenericServiceImplTest {
     IMyService myService;
 
     /**
-     * 为了启动不失败，需要再启动参数中添加：dubbo.protocol.host=192.168.1.112
+     * 为了启动不失败，需要再启动参数中添加：dubbo.protocol.host=127.0.0.1
      */
     @Test
     void invokeUser() {
-        System.getProperties().setProperty(Constants.DUBBO_IP_TO_REGISTRY,"192.168.1.112");
+//        System.getProperties().setProperty(Constants.DUBBO_IP_TO_REGISTRY,"127.0.0.1");
         User user = new User();
         user.setId("100");
         user.setName("张三");
@@ -40,7 +37,7 @@ class MyGenericServiceImplTest {
         user.setId("100");
         user.setName("张三");
         user.setAccount("zhangshan102");
-        Object sayHello = DubboServcieClientFactory.getInstance().genericInvoke(IMyService.class.getName(), "sayHello", user);
+        Object sayHello = DubboServcieClientFactory.getInstance().genericInvoke(IMyService.class.getName(), "sayHello", "张三");
         log.info("结果：[{}]" , sayHello);
     }
 

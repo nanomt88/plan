@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ImportResource;
 public class SpringBootProviderDemoApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SpringBootProviderDemoApplication.class, args);
 	}
 

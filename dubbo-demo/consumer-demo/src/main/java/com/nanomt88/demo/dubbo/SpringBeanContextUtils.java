@@ -1,6 +1,5 @@
 package com.nanomt88.demo.dubbo;
 
-import org.apache.dubbo.common.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -49,6 +48,6 @@ public class SpringBeanContextUtils implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         APPLICATION_CONTEXT = applicationContext;
 
-        System.getProperties().setProperty(Constants.DUBBO_IP_TO_REGISTRY,"192.168.1.112");
+//        System.getProperties().setProperty(Constants.DUBBO_IP_TO_REGISTRY,"127.0.0.1");
     }
 }

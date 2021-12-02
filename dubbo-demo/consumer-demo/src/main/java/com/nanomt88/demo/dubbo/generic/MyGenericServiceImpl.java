@@ -39,7 +39,7 @@ public class MyGenericServiceImpl implements IGenericService {
         reference.setRegistry((RegistryConfig) registryConfig);
         // 弱类型接口名
         reference.setInterface("com.nanomt88.demo.dubbo.sample.IMyService");
-        reference.setVersion("1.0.0");
+//        reference.setVersion("1.0.0");
         // 声明为泛化接口
         reference.setGeneric("true");
 
