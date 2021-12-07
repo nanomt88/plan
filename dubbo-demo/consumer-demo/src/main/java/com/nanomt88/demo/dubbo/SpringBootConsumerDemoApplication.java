@@ -1,8 +1,5 @@
 package com.nanomt88.demo.dubbo;
 
-import com.nanomt88.demo.dubbo.generic.DubboServcieClientFactory;
-import com.nanomt88.demo.dubbo.sample.IMyService;
-import com.nanomt88.demo.dubbo.sample.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;

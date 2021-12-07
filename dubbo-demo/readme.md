@@ -1,4 +1,5 @@
 
+## dubbo学习 
 ### 动态设置duubo调用超时时间 
 
 * 通过设置rpc上下文实现
@@ -6,12 +7,12 @@
  * 通过修改 ReferenceConfig配置，重新装载服务应该也可以实现 -- 带尝试 
 > 参考： 
 >com.nanomt88.demo.dubbo.generic.TimeoutTest.timeoutTest();
-> com.nanomt88.demo.dubbo.generic.DubboServcieClientFactory.changeTimeout();
+> com.nanomt88.demo.dubbo.DubboConsumerClientFactory.changeTimeout();
 
 ### 泛化调用
 
 > 参考： 
-> com.nanomt88.demo.dubbo.generic.DubboServcieClientFactory.genericInvoke();
+> com.nanomt88.demo.dubbo.DubboConsumerClientFactory.genericInvoke();
 
 
 

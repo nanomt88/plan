@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ServletComponentScan(basePackages = {"com.nanomt88.demo"})
+@ServletComponentScan(basePackages = {"com.nanomt88.demo.*"})
 @ImportResource(locations = "classpath:spring-dubbo.xml")
 public class SpringBootProviderDemoApplication {
 

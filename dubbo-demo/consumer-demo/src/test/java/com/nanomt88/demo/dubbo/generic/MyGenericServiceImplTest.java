@@ -1,5 +1,6 @@
 package com.nanomt88.demo.dubbo.generic;
 
+import com.nanomt88.demo.dubbo.DubboConsumerClientFactory;
 import com.nanomt88.demo.dubbo.sample.IMyService;
 import com.nanomt88.demo.dubbo.sample.User;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +38,7 @@ class MyGenericServiceImplTest {
         user.setId("100");
         user.setName("张三");
         user.setAccount("zhangshan102");
-        Object sayHello = DubboServcieClientFactory.getInstance().genericInvoke(IMyService.class.getName(), "sayHello", "张三");
+        Object sayHello = DubboConsumerClientFactory.getInstance().genericInvoke(IMyService.class.getName(), "sayHello", "张三");
         log.info("结果：[{}]" , sayHello);
     }
 
