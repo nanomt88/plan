@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 @Slf4j
-public class VirtualApiCacheLoader implements InitializingBean, DisposableBean, ApplicationContextAware {
+public class VirtualApiCacheLoader implements ICacheLoader,InitializingBean, DisposableBean, ApplicationContextAware {
 
     private Map<String,VirtualDubboApiInfo> bean_cache = new ConcurrentHashMap<>();
 

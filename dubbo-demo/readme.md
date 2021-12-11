@@ -4,6 +4,8 @@
 
 * 通过设置rpc上下文实现
  RpcContext.getContext().setObjectAttachment("timeout","2000");
+ 备注：能修改客户端和服务端的超时时间
+ 
  * 通过修改 ReferenceConfig配置，重新装载服务应该也可以实现 -- 带尝试 
 > 参考： 
 >com.nanomt88.demo.dubbo.generic.TimeoutTest.timeoutTest();
@@ -14,7 +16,20 @@
 > 参考： 
 > com.nanomt88.demo.dubbo.DubboConsumerClientFactory.genericInvoke();
 
+### http连接处调用 
 
+>参考：
+>com.nanomt88.demo.dubbo.PoolingHttpClientUtils
+>com.nanomt88.demo.httpclient.PoolingHttpPoolTest
+
+
+### 异步转同步 
+注意，集群模式下没有消息重试
+同步转异步的时候，异步队列里面如何处理超时请求：
+* 1.可以使用线程异步扫描
+* 2.可以参考dubbo源码，使用future添加的时候，添加一个timer定时检查
+>参考 
+>com.nanomt88.demo.dubbo.async.AsyncTaskManager
 
 ## 避坑
 ### 1. 服务没有提供者 

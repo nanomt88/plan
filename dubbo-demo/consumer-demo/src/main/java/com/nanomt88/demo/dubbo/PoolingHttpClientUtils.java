@@ -99,6 +99,7 @@ public class PoolingHttpClientUtils {
             }
             String responseString = EntityUtils.toString(httpResponse.getEntity());
             log.info("响应 ： [{}]", responseString);
+
             return responseString;
         } catch (IOException e) {
             log.error("httpclient get error", e);
@@ -107,6 +108,9 @@ public class PoolingHttpClientUtils {
             if (httpResponse != null) {
                 try {
                     EntityUtils.consume(httpResponse.getEntity());
+//                    httpPost.releaseConnection(); 释放基础HTTP连接以允许重用它 ；
+//                    4.2中，甚至可能在该版本之前，要遵循的正确模式是不要使用releaseConnection
+//                    httpResponse.close();
                     //归还链接不要调用response对象的close（）方法，因为其是关闭链接，而不是把链接返回到链接池
                 } catch (IOException e) {
                     log.error("httpclient release to pooling error", e);

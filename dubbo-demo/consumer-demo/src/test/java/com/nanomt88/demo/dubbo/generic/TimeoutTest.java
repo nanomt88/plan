@@ -16,10 +16,11 @@ public class TimeoutTest {
 
     @Test
     public void timeoutTest(){
-        //设置超时时间
-        String timeout = "4000" ;
+        //设置超时时间 ，备注：能修改客户端和服务端的超时时间
+        String timeout = "8000" ;
         RpcContext.getContext().setObjectAttachment("timeout",timeout);
         log.info("set rpc : [{}] timeout to :[{}]" ,IMyService.class.getName(), timeout);
-        myService.sayHello("张44");
+        String hello = myService.sayHello("张44");
+        System.out.println("执行结果：" + hello);
     }
 }

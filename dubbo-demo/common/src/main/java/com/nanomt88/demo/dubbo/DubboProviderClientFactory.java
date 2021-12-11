@@ -57,6 +57,7 @@ public class DubboProviderClientFactory {
     public void registerReferenceConfig(VirtualDubboApiInfo virtualDubboApiInfo) {
         ProtocolConfig protocolConfig = new ProtocolConfig();
         protocolConfig.setName("dubbo");
+        //TODO fixme 这里应该取dubbo provider的端口，动态配置
         protocolConfig.setPort(1888);
 
         ServiceConfig config  = new ServiceConfig();
