@@ -1,5 +1,6 @@
 package com.nanomt88.demo.dubbo;
 
+import com.nanomt88.demo.dubbo.sample.IConsistentHashService;
 import com.nanomt88.demo.dubbo.sample.IMyService;
 import com.nanomt88.demo.dubbo.sample.Order;
 import com.nanomt88.demo.dubbo.sample.User;
@@ -24,7 +25,7 @@ import java.util.UUID;
 public class MyController {
 
     @Autowired
-    private IMyService myService;
+    private IConsistentHashService myService;
 
     @RequestMapping(value = "/test")
     @ResponseBody
@@ -53,7 +54,7 @@ public class MyController {
         }
         user.setRequestNo(UUID.randomUUID().toString());
         RpcContext.getContext().setObjectAttachment("timeout", 12000+"");
-        Order hello = myService.asyncToSync(user);
+        Order hello = myService.asyncToSync(user.getRequestNo(),user);
 
         map.put("responseCode","00000");
         map.put("data", hello);

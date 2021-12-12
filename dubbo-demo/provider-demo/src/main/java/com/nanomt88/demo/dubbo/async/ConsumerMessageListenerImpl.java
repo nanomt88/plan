@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author TCDD
  */
-@Service
+//@Service
 public class ConsumerMessageListenerImpl implements ConsumerMessageListener {
 
     Logger logger = LoggerFactory.getLogger(ConsumerMessageListener.class);

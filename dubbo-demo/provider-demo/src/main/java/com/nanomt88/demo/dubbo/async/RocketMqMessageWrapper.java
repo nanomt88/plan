@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * 通用封装逻辑，可以用来进行数据转型，数据入库等
  */
-@Service
+//@Service
 public class RocketMqMessageWrapper implements MessageListenerConcurrently {
 
     private static final Logger logger = LoggerFactory.getLogger(RocketMqMessageWrapper.class);

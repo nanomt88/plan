@@ -16,6 +16,27 @@
     <!-- 用dubbo协议在20881端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20881" host="127.0.0.1"/>
 
+
+    <!-- random 随机选择一个服务调用。默认 -->
+    <!--<dubbo:reference id="helloService" interface="com.nanomt88.demo.dubbo.sample.HelloService" loadbalance="random" />-->
+    <!-- roundrobin 轮询，可能存在阻塞问题，当一个节点很慢时，就会累计很多的请求在该节点 -->
+    <!--<dubbo:reference id="helloService" interface="com.nanomt88.demo.dubbo.sample.HelloService" loadbalance="roundrobin" />-->
+    <!-- leastactive 最少活跃数 -->
+    <!--<dubbo:reference id="helloService" interface="com.nanomt88.demo.dubbo.sample.HelloService" loadbalance="leastactive" timeout="5000" />-->
+    <!-- consistenthash 一致性哈希负载均衡配置 -->
+    <!-- hash.arguments 缺省只对第一个参数Hash，如果要修改，请配置。
+          当进行调用时候根据调用方法的哪几个参数生成key，并根据key来通过一致性hash算法来选择调用结点。
+          例如调用方法invoke(String s1,String s2); 若hash.arguments为1(默认值)，则仅取invoke的参
+          数1（s1）来生成hashCode。
+          注意：参数的下标从0开始，0表示第一个参数；1表示第二个参数 -->
+    <!-- hash.nodes 缺省用160份虚拟节点，如果要修改，请配置。下面配置虚拟节点为 320 个 -->
+
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="demoService" check="false" timeout="1000" retries="0" interface="com.nanomt88.demo.dubbo.sample.IMyService" />
+    <dubbo:reference id="consistentHashService" check="false" timeout="1000" retries="0" loadbalance="consistenthash"
+                     interface="com.nanomt88.demo.dubbo.sample.IConsistentHashService">
+        <!-- 下面将使用服务的第一个参数作为hash运算key -->
+        <dubbo:parameter key="hash.arguments" value="0"/>
+        <!-- 设置虚拟节点的数为4个，dubbo缺省就是160 份虚拟节点 -->
+        <dubbo:parameter key="hash.nodes" value="4"/>
+    </dubbo:reference>
 </beans>
