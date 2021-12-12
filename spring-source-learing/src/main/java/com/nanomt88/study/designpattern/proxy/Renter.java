@@ -3,7 +3,7 @@ package com.nanomt88.study.designpattern.proxy;
 /**
  * 租客
  *
- * @author hongxudong
+ * @author nanomt88
  * @create 2018-03-10 20:43
  **/
 public interface Renter {
