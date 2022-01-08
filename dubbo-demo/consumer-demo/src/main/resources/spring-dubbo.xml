@@ -18,4 +18,6 @@
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
     <dubbo:reference id="demoService" check="false" timeout="1000" retries="0" interface="com.nanomt88.demo.dubbo.sample.IMyService" />
+
+    <dubbo:reference id="middleService" check="false" timeout="1000" retries="0" interface="com.nanomt88.demo.dubbo.sample.IMiddleService" />
 </beans>

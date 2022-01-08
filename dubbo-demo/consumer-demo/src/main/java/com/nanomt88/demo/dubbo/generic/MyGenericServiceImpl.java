@@ -1,19 +1,15 @@
 package com.nanomt88.demo.dubbo.generic;
 
-import org.apache.dubbo.config.ConsumerConfig;
 import com.nanomt88.demo.dubbo.SpringBeanContextUtils;
 import com.nanomt88.demo.dubbo.sample.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
-import org.apache.dubbo.rpc.protocol.dubbo.DubboProtocol;
 import org.apache.dubbo.rpc.service.GenericException;
 import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

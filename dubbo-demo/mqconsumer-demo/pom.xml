@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.nanomt88.demo</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>core</artifactId>
         </dependency>
     </dependencies>
 </project>

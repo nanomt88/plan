@@ -26,8 +26,8 @@ public class MyServiceImpl implements IMyService{
     @Override
     public String sayHello(String name){
         try {
-            log.info("sleep 2000ms");
-            Thread.sleep(2000);
+            log.info("sleep 3500ms");
+            Thread.sleep(3500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

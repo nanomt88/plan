@@ -2,7 +2,10 @@ package com.nanomt88.demo.dubbo;
 
 import com.nanomt88.demo.dubbo.virtual.VirtualDubboApiInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.*;
+import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ProtocolConfig;
+import org.apache.dubbo.config.RegistryConfig;
+import org.apache.dubbo.config.ServiceConfig;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -30,7 +33,7 @@ public class DubboProviderClientFactory {
     }
 
     public static DubboProviderClientFactory getInstance() {
-        return DubboProviderClientFactory.DubboServcieClientSingletonHloder.INSTANCE;
+        return DubboServcieClientSingletonHloder.INSTANCE;
     }
 
     private DubboProviderClientFactory() {

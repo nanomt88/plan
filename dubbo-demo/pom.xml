@@ -7,7 +7,9 @@
         <module>consumer-demo</module>
         <module>common</module>
         <module>provider-demo</module>
+        <module>business-demo</module>
         <module>mqconsumer-demo</module>
+        <module>core</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -115,6 +117,11 @@
             <dependency>
                 <groupId>com.nanomt88.demo</groupId>
                 <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.nanomt88.demo</groupId>
+                <artifactId>core</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

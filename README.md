@@ -29,6 +29,9 @@
 
 	代码参考 [自己实现Java动态代理源代码](https://github.com/nanomt88/plan/tree/master/spring-source-learing/src/main/java/com/nanomt88/study/designpattern/proxy/custom "自己实现Java动态代理源代码")
 
+### AOP实现
+
+参考： com.nanomt88.demo.proxy.ProxyTest
 
 ### CGlib 动态代理
 1. 满足代理模式的三个必要条件

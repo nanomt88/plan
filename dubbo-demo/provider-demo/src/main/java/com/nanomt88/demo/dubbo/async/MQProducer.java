@@ -20,7 +20,7 @@ import javax.annotation.PreDestroy;
 /**
  * 生产者
  */
-@Component
+//@Component
 public class MQProducer {
 
     private final Logger logger = LoggerFactory.getLogger(MQProducer.class);
