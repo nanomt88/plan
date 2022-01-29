@@ -1,0 +1,238 @@
+{
+  "consumers": {
+    "com.nanomt88.demo.dubbo.sample.IMiddleService": {
+      "17": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "anyHost": false,
+        "backupAddress": "172.31.16.1",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMiddleService::",
+        "host": "172.31.16.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "init": "false",
+          "side": "consumer",
+          "methods": "middleRpc",
+          "release": "2.7.8",
+          "dubbo": "2.0.2",
+          "pid": "42436",
+          "check": "false",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+          "qos.enable": "false",
+          "timeout": "1000",
+          "retries": "0",
+          "metadata-type": "remote",
+          "application": "consumer-demo-app",
+          "sticky": "false",
+          "category": "consumers",
+          "timestamp": "1643432430090"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "port": 0,
+        "protocol": "consumer",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMiddleService"
+      }
+    },
+    "com.nanomt88.demo.dubbo.sample.IMyService": {
+      "18": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMyService",
+        "anyHost": false,
+        "backupAddress": "172.31.16.1",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMyService::",
+        "host": "172.31.16.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "init": "false",
+          "side": "consumer",
+          "methods": "asyncToSync,sayHello,getUser",
+          "release": "2.7.8",
+          "dubbo": "2.0.2",
+          "pid": "42436",
+          "check": "false",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMyService",
+          "qos.enable": "false",
+          "timeout": "1000",
+          "retries": "0",
+          "metadata-type": "remote",
+          "application": "consumer-demo-app",
+          "sticky": "false",
+          "category": "consumers",
+          "timestamp": "1643432431713"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "port": 0,
+        "protocol": "consumer",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMyService"
+      }
+    }
+  },
+  "providers": {
+    "com.nanomt88.demo.dubbo.sample.IMiddleService": {
+      "13": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "anyHost": true,
+        "backupAddress": "192.168.56.1:20880",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMiddleService::",
+        "host": "192.168.56.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "side": "provider",
+          "application.version": "1.0.0",
+          "methods": "middleRpc",
+          "release": "2.7.8",
+          "deprecated": "false",
+          "dubbo": "2.0.2",
+          "pid": "8704",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+          "generic": "false",
+          "timeout": "1000",
+          "metadata-type": "remote",
+          "application": "providerDemoApp",
+          "dynamic": "true",
+          "anyhost": "true",
+          "timestamp": "1643431509277"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "port": 20880,
+        "protocol": "dubbo",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMiddleService"
+      },
+      "14": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "anyHost": true,
+        "backupAddress": "192.168.56.1:20888",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMiddleService::",
+        "host": "192.168.56.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "side": "provider",
+          "application.version": "1.0.0",
+          "methods": "middleRpc",
+          "release": "2.7.8",
+          "deprecated": "false",
+          "dubbo": "2.0.2",
+          "pid": "8704",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+          "generic": "false",
+          "timeout": "1000",
+          "metadata-type": "remote",
+          "application": "providerDemoApp",
+          "dynamic": "true",
+          "anyhost": "true",
+          "timestamp": "1643431510347"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "port": 20888,
+        "protocol": "dubbo",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMiddleService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMiddleService"
+      }
+    },
+    "com.nanomt88.demo.dubbo.sample.IMyService": {
+      "16": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMyService",
+        "anyHost": true,
+        "backupAddress": "192.168.56.1:20880",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMyService::",
+        "host": "192.168.56.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "side": "provider",
+          "application.version": "1.0.0",
+          "methods": "asyncToSync,sayHello,getUser",
+          "release": "2.7.8",
+          "deprecated": "false",
+          "dubbo": "2.0.2",
+          "pid": "8704",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMyService",
+          "generic": "false",
+          "timeout": "1000",
+          "metadata-type": "remote",
+          "application": "providerDemoApp",
+          "dynamic": "true",
+          "anyhost": "true",
+          "timestamp": "1643431510448"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "port": 20880,
+        "protocol": "dubbo",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMyService"
+      },
+      "15": {
+        "absolutePath": "/com.nanomt88.demo.dubbo.sample.IMyService",
+        "anyHost": true,
+        "backupAddress": "192.168.56.1:20888",
+        "backupUrls": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "colonSeparatedKey": "com.nanomt88.demo.dubbo.sample.IMyService::",
+        "host": "192.168.56.1",
+        "localHost": false,
+        "methodParameters": {},
+        "parameters": {
+          "side": "provider",
+          "application.version": "1.0.0",
+          "methods": "asyncToSync,sayHello,getUser",
+          "release": "2.7.8",
+          "deprecated": "false",
+          "dubbo": "2.0.2",
+          "pid": "8704",
+          "interface": "com.nanomt88.demo.dubbo.sample.IMyService",
+          "generic": "false",
+          "timeout": "1000",
+          "metadata-type": "remote",
+          "application": "providerDemoApp",
+          "dynamic": "true",
+          "anyhost": "true",
+          "timestamp": "1643431510542"
+        },
+        "path": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "pathKey": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "port": 20888,
+        "protocol": "dubbo",
+        "serviceInterface": "com.nanomt88.demo.dubbo.sample.IMyService",
+        "serviceName": "com.nanomt88.demo.dubbo.sample.IMyService"
+      }
+    }
+  }
+}

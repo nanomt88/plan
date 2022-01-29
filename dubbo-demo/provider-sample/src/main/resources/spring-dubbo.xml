@@ -17,15 +17,16 @@
     <dubbo:protocol name="dubbo" port="20888" host="localhost"/>
 
     <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="com.nanomt88.demo.dubbo.sample.IMiddleService" timeout="1000" ref="middleService"/>
+
     <dubbo:service interface="com.nanomt88.demo.dubbo.sample.IMyService" timeout="1000" ref="myService"/>
     <!--  方式1，xml配置：filter定义引用的filter，virtualApiFilter与dubbo meta-inf下文件中name需要一致  -->
 <!--    <dubbo:service interface="com.nanomt88.demo.dubbo.sample.IMyService" ref="myService" filter="virtualApiFilter"/>-->
 
-    <dubbo:service interface="com.nanomt88.demo.dubbo.sample.IConsistentHashService" timeout="6000" ref="consistentHashService"/>
-
     <!-- 和本地bean一样实现服务 -->
     <bean id="myService" class="com.nanomt88.demo.dubbo.sample.MyServiceImpl" />
-    <bean id="consistentHashService" class="com.nanomt88.demo.dubbo.async.ConsistentHashServiceImpl" />
+
+    <bean id="middleService" class="com.nanomt88.demo.dubbo.sample.MiddleServiceImpl" />
 
     <dubbo:reference id="registryService" interface="org.apache.dubbo.registry.RegistryService" check="false"/>
 </beans>

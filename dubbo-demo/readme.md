@@ -31,6 +31,11 @@
 >参考 
 >com.nanomt88.demo.dubbo.async.AsyncTaskManager
 
+### 动态unregister provider服务
+1. 先订阅所有的服务通知，然后获取到url之后就可以反注册
+>参考：
+>RegistryServerSync.unregisterProvider
+
 ## 避坑
 ### 1. 服务没有提供者 
 ```
@@ -38,3 +43,4 @@ ReferenceConfig<GenericService> reference = new ReferenceConfig<>();
 //注意：若provider没有设置版本，则这里也不能设置，设置了就会报no provider的错误。。。。
 //reference.setVersion(version);
 ```
+

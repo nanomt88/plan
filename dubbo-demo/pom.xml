@@ -7,7 +7,9 @@
         <module>consumer-demo</module>
         <module>common</module>
         <module>provider-demo</module>
+        <module>provider-sample</module>
         <module>business-demo</module>
+        <module>mqconsumer-demo</module>
         <module>mqconsumer-demo</module>
         <module>core</module>
     </modules>
